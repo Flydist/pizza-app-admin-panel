@@ -1,13 +1,13 @@
 import React, { FC } from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
-import { OrdersTable } from './bus/orders/components/OrdersTables/OrdersTables'
+import { OrdersList } from './bus/orders/components/OrdersList/OrdersList'
 
 const App: FC = () => (
   <>
     <Container>
       <Row>
         <Col>
-          <OrdersTable />
+          <OrdersList />
         </Col>
         <Col />
       </Row>

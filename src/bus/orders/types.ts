@@ -1,3 +1,5 @@
+export type StatusType = 'new' | 'cooking' | 'delivered'
+
 export type Order = {
   _id: string
   people: string
@@ -7,7 +9,8 @@ export type Order = {
   paytype: string
   comment: string
   positions: string
-  orderTotal: number
+  orderTotal: number,
+  status: StatusType,
 }
 
 export const ORDERS_START_FETCHING = 'ORDERS_START_FETCHING'
