@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { GrUpdate } from 'react-icons/gr'
 import { useDispatch } from 'react-redux'
+import { filterDataByStatus } from '../../../../helpers/filterDataByStatus'
 import { useOrdersFetching } from '../../hooks/useOrdersFetching'
 import { fetchAsync } from '../actions'
 import { OrdersTable } from '../OrdersTable/OrdersTable'
@@ -22,9 +23,9 @@ export const OrdersList: FC = () => {
           <UpdateButton onClick={() => dispatch(fetchAsync())}>
             <GrUpdate />
           </UpdateButton>
-          <OrdersTable data={data} status="new" tableName="Новые заказы" />
-          <OrdersTable data={data} status="cooking" tableName="Готовятся" />
-          <OrdersTable data={data} status="delivered" tableName="Выданы" />
+          <OrdersTable data={filterDataByStatus('new', data)} tableName="Новые заказы" />
+          <OrdersTable data={filterDataByStatus('cooking', data)} tableName="Готовятся" />
+          <OrdersTable data={filterDataByStatus('delivered', data)} tableName="Выданы" />
         </>
       )}
     </ListContainer>

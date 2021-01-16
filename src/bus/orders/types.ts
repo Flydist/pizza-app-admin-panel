@@ -37,7 +37,7 @@ export type OrdersSetFecthingErrorAction = {
 }
 
 // Async
-export const ORDERS_FETCH_ASYNC = 'STARSHIPS_FETCH_ASYNC'
+export const ORDERS_FETCH_ASYNC = 'ORDERS_FETCH_ASYNC'
 type OrdersFetchAsyncAction = {
   type: typeof ORDERS_FETCH_ASYNC
 }
