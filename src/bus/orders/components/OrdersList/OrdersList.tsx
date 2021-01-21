@@ -3,7 +3,7 @@ import { GrUpdate } from 'react-icons/gr'
 import { useDispatch } from 'react-redux'
 import { filterDataByStatus } from '../../../../helpers/filterDataByStatus'
 import { useOrdersFetching } from '../../hooks/useOrdersFetching'
-import { fetchAsync } from '../actions'
+import { fetchAsync } from '../../actions'
 import { OrdersTable } from '../OrdersTable/OrdersTable'
 import { ListContainer, UpdateButton } from './OrdersList.styled'
 

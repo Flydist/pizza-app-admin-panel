@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects'
 import { api } from '../../../../api'
 import {
   startFetching, stopFetching, fill, setFecthingError,
-} from '../../components/actions'
+} from '../../actions'
 
 export function* fetchOrders(): SagaIterator {
   try {

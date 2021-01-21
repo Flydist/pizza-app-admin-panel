@@ -2,10 +2,12 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../../../init/rootReducer'
 import { OrdersState } from '../../../reducers/ordersReducer'
-import { fetchAsync } from '../components/actions'
+import { fetchAsync } from '../actions'
 
 export const useOrdersFetching = (): OrdersState => {
-  const { data, isFetching, error } = useSelector<AppState, OrdersState>(
+  const {
+    data, isFetching, error, selectedOrderId,
+  } = useSelector<AppState, OrdersState>(
     (state) => state.ordersReducer,
   )
 
@@ -19,5 +21,6 @@ export const useOrdersFetching = (): OrdersState => {
     data,
     isFetching,
     error,
+    selectedOrderId,
   }
 }
