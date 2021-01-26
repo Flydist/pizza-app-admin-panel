@@ -14,19 +14,16 @@ export const api: ApiType = {
   orders: {
     fetch: () => fetch(`${root}/pizza`, {
       method: 'GET',
-    })
-      .then((response) => response.json()),
+    }).then((response) => response.json()),
     delete: (id) => fetch(`${root}/pizza/${id}`, {
       method: 'DELETE',
-    })
-      .then((response) => response.text()),
+    }).then((response) => response.text()),
     updateOrder: (newOrder) => fetch(`${root}/pizza/${newOrder._id}`, {
       method: 'PUT',
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
       body: JSON.stringify(newOrder),
-    })
-      .then((response) => response.json()),
+    }).then((response) => response.json()),
   },
 }

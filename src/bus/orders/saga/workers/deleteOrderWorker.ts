@@ -4,7 +4,7 @@ import { api } from '../../../../api'
 import { deleteOrder } from '../../actions'
 
 type Params = {
-  type: string;
+  type: string
   payload: string
 }
 

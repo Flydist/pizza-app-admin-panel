@@ -9,8 +9,19 @@ export type Order = {
   paytype: string
   comment: string
   positions: string
-  orderTotal: number,
-  status: StatusType,
+  orderTotal: number
+  status: StatusType
+}
+
+export type FormValues = {
+  people: string
+  phone: string
+  address: string
+  delivery: string
+  paytype: string
+  comment: string
+  positions: string
+  orderTotal: string
 }
 
 export const ORDERS_START_FETCHING = 'ORDERS_START_FETCHING'
@@ -39,15 +50,15 @@ export type OrdersSetFecthingErrorAction = {
   type: typeof ORDERS_SET_FETCHING_ERROR
 }
 export type OrdersSetSelectedOrderId = {
-  type: typeof ORDERS_SET_SELECTED_ORDER_ID,
+  type: typeof ORDERS_SET_SELECTED_ORDER_ID
   payload: string
 }
 export type OrdersDeleteOrderAction = {
-  type: typeof ORDERS_DELETE_ORDER,
+  type: typeof ORDERS_DELETE_ORDER
   payload: string
 }
 export type OrdersUpdateOrderAction = {
-  type: typeof ORDERS_UPDATE_ORDER,
+  type: typeof ORDERS_UPDATE_ORDER
   payload: Order
 }
 
@@ -60,14 +71,14 @@ type OrdersFetchAsyncAction = {
   type: typeof ORDERS_FETCH_ASYNC
 }
 type OrdersDeleteOrderRequestAsyncAction = {
-  type: typeof ORDERS_DELETE_ORDER_REQUEST,
+  type: typeof ORDERS_DELETE_ORDER_REQUEST
   payload: string
 }
 type OrdersChangeOrderStatusRequestAction = {
-  type: typeof ORDERS_CHANGE_ORDER_STATUS_REQUEST,
+  type: typeof ORDERS_CHANGE_ORDER_STATUS_REQUEST
   payload: {
-    currentOrder: Order,
-    newStatus: StatusType,
+    currentOrder: Order
+    newStatus: StatusType
   }
 }
 

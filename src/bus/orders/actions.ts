@@ -52,9 +52,7 @@ export const deleteOrderRequestAsync = (id: string): OrdersActionTypes => ({
 export const changeStatusRequestAsync = (
   currentOrder: Order,
   newStatus: StatusType,
-): OrdersActionTypes => (
-  {
-    type: ORDERS_CHANGE_ORDER_STATUS_REQUEST,
-    payload: { currentOrder, newStatus },
-  }
-)
+): OrdersActionTypes => ({
+  type: ORDERS_CHANGE_ORDER_STATUS_REQUEST,
+  payload: { currentOrder, newStatus },
+})

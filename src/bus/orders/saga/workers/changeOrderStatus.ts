@@ -5,10 +5,10 @@ import { updateOrder } from '../../actions'
 import { Order, StatusType } from '../../types'
 
 type Params = {
-  type: string,
+  type: string
   payload: {
-    currentOrder: Order,
-    newStatus: StatusType,
+    currentOrder: Order
+    newStatus: StatusType
   }
 }
 
