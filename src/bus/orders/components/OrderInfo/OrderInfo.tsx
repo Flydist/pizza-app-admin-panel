@@ -2,8 +2,11 @@ import React, { FC } from 'react'
 import { Button } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { useOrderInfo } from '../../hooks/useOrderInfo'
-import { changeStatusRequestAsync, deleteOrderRequestAsync } from '../../actions'
-import { InfoContainer, StatusButtonsBlock } from './OrderInfo.styled'
+import {
+  changeStatusRequestAsync, deleteOrderRequestAsync, resetSelectedOrderId, setEditMode,
+} from '../../actions'
+import { InfoContainer } from './OrderInfo.styled'
+import { ButtonsList } from '../../../../styles/styles.styled'
 
 export const OrderInfo: FC = () => {
   const currentOrder = useOrderInfo()
@@ -55,7 +58,7 @@ export const OrderInfo: FC = () => {
         Итого -
         {orderTotal}
       </p>
-      <StatusButtonsBlock>
+      <ButtonsList>
         <Button
           variant="primary"
           onClick={() => dispatch(changeStatusRequestAsync(currentOrder, 'new'))}
@@ -77,10 +80,23 @@ export const OrderInfo: FC = () => {
         >
           Выдан
         </Button>
-      </StatusButtonsBlock>
-      <Button variant="danger" onClick={() => dispatch(deleteOrderRequestAsync(_id))}>
-        Удалить
-      </Button>
+      </ButtonsList>
+      <ButtonsList>
+        <Button variant="primary" onClick={() => dispatch(setEditMode())}>
+          Изменить
+        </Button>
+        <Button variant="danger" onClick={() => dispatch(deleteOrderRequestAsync(_id))}>
+          Удалить
+        </Button>
+        <Button
+          variant="danger"
+          onClick={() => {
+            dispatch(resetSelectedOrderId())
+          }}
+        >
+          Закрыть
+        </Button>
+      </ButtonsList>
     </InfoContainer>
   )
 }

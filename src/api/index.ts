@@ -1,10 +1,11 @@
-import { Order } from '../bus/orders/types'
+import { FormValues, Order } from '../bus/orders/types'
 
 const root = 'http://localhost:4000'
 
 type ApiType = {
   orders: {
     fetch: () => Promise<Order[]>
+    createOrder: (order: FormValues) => Promise<Order>
     delete: (id: string) => Promise<string>
     updateOrder: (newOrder: Order) => Promise<Order>
   }
@@ -14,6 +15,13 @@ export const api: ApiType = {
   orders: {
     fetch: () => fetch(`${root}/pizza`, {
       method: 'GET',
+    }).then((response) => response.json()),
+    createOrder: (order) => fetch(`${root}/pizza`, {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+      body: JSON.stringify(order),
     }).then((response) => response.json()),
     delete: (id) => fetch(`${root}/pizza/${id}`, {
       method: 'DELETE',

@@ -1,3 +1,5 @@
 export { fetchOrders } from './fetchOrders'
 export { deleteOrderWorker } from './deleteOrderWorker'
 export { changeOrderStatus } from './changeOrderStatus'
+export { createOrderWorker } from './createOrderWorker'
+export { updateOrderWorker } from './updateOrderWorker'

@@ -6,7 +6,7 @@ import { fetchAsync } from '../actions'
 
 export const useOrdersFetching = (): OrdersState => {
   const {
-    data, isFetching, error, selectedOrderId,
+    data, isFetching, error, selectedOrderId, orderFormMode,
   } = useSelector<AppState, OrdersState>(
     (state) => state.ordersReducer,
   )
@@ -22,5 +22,6 @@ export const useOrdersFetching = (): OrdersState => {
     isFetching,
     error,
     selectedOrderId,
+    orderFormMode,
   }
 }

@@ -21,9 +21,3 @@ export const InfoContainer = styled.div`
     margin: 5px 0;
   }
 `
-
-export const StatusButtonsBlock = styled.div`
-  button {
-    margin-right: 5px;
-  }
-`
