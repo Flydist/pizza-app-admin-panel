@@ -6,7 +6,8 @@ import {
   changeStatusRequestAsync, deleteOrderRequestAsync, resetSelectedOrderId, setEditMode,
 } from '../../actions'
 import { InfoContainer } from './OrderInfo.styled'
-import { ButtonsList } from '../../../../styles/styles.styled'
+import { ButtonsList } from '../../../../common/common.styled'
+import { statusVariants } from '../../../../constants/constants'
 
 export const OrderInfo: FC = () => {
   const currentOrder = useOrderInfo()
@@ -59,27 +60,17 @@ export const OrderInfo: FC = () => {
         {orderTotal}
       </p>
       <ButtonsList>
-        <Button
-          variant="primary"
-          onClick={() => dispatch(changeStatusRequestAsync(currentOrder, 'new'))}
-          disabled={status === 'new'}
-        >
-          Новый
-        </Button>
-        <Button
-          variant="primary"
-          onClick={() => dispatch(changeStatusRequestAsync(currentOrder, 'cooking'))}
-          disabled={status === 'cooking'}
-        >
-          Готовится
-        </Button>
-        <Button
-          variant="primary"
-          onClick={() => dispatch(changeStatusRequestAsync(currentOrder, 'delivered'))}
-          disabled={status === 'delivered'}
-        >
-          Выдан
-        </Button>
+        {
+          statusVariants.map((item) => (
+            <Button
+              variant="primary"
+              onClick={() => dispatch(changeStatusRequestAsync(currentOrder, item.status))}
+              disabled={status === item.status}
+            >
+              {item.text}
+            </Button>
+          ))
+        }
       </ButtonsList>
       <ButtonsList>
         <Button variant="primary" onClick={() => dispatch(setEditMode())}>

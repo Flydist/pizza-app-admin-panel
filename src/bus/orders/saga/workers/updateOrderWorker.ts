@@ -14,7 +14,6 @@ export function* updateOrderWorker({ payload }: Params): SagaIterator {
     yield call(api.orders.updateOrder, payload)
     yield put(updateOrder(payload))
   } catch (e) {
-    // eslint-disable-next-line no-console
-    console.log(e)
+    // ignore updating
   }
 }

@@ -21,7 +21,6 @@ export function* changeOrderStatus({ payload: { currentOrder, newStatus } }: Par
     yield call(api.orders.updateOrder, newOrder)
     yield put(updateOrder(newOrder))
   } catch (e) {
-    // eslint-disable-next-line no-console
-    console.log(e)
+    // ignore updating
   }
 }

@@ -6,6 +6,7 @@ import { useOrdersFetching } from '../../hooks/useOrdersFetching'
 import { fetchAsync, setAddMode } from '../../actions'
 import { OrdersTable } from '../OrdersTable/OrdersTable'
 import { AddOrderButton, ListContainer, UpdateButton } from './OrdersList.styled'
+import { statusVariants } from '../../../../constants/constants'
 
 export const OrdersList: FC = () => {
   const { data, isFetching, error } = useOrdersFetching()
@@ -24,9 +25,11 @@ export const OrdersList: FC = () => {
             <GrUpdate />
           </UpdateButton>
           <AddOrderButton variant="success" onClick={() => dispatch(setAddMode())}>Добавить заказ</AddOrderButton>
-          <OrdersTable data={filterDataByStatus('new', data)} tableName="Новые заказы" />
-          <OrdersTable data={filterDataByStatus('cooking', data)} tableName="Готовятся" />
-          <OrdersTable data={filterDataByStatus('delivered', data)} tableName="Выданы" />
+          {
+            statusVariants.map((item) => (
+              <OrdersTable data={filterDataByStatus(item.status, data)} tableName={item.text} />
+            ))
+          }
         </>
       )}
     </ListContainer>

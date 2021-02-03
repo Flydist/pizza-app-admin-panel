@@ -1,4 +1,10 @@
-export type StatusType = 'new' | 'cooking' | 'delivered'
+export enum StatusList {
+  new,
+  cooking,
+  delivered,
+}
+
+export type StatusType = keyof typeof StatusList
 export type OrderFormModeType = 'add' | 'edit'
 
 export type Order = {

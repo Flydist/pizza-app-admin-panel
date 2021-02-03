@@ -15,7 +15,6 @@ export function* createOrderWorker({ payload }: Params): SagaIterator {
     const responseData = yield call(api.orders.createOrder, orderWithStatus)
     yield put(addOrder(responseData))
   } catch (e) {
-    // eslint-disable-next-line no-console
-    console.log(e)
+    // ignore creating
   }
 }
