@@ -21,7 +21,7 @@ export const OrderForm: FC = () => {
   } = useSelector<AppState, OrdersState>((state) => state.ordersReducer)
 
   const {
-    register, handleSubmit, setValue, errors, reset,
+    register, handleSubmit, setValue, errors,
   } = useForm<FormValues>()
 
   const dispatch = useDispatch()
@@ -41,7 +41,7 @@ export const OrderForm: FC = () => {
         { ...data, _id: selectedOrderId, status: currentOrder.status },
       ))
     }
-    reset()
+    dispatch(resetMode())
   }
 
   return (
@@ -77,9 +77,7 @@ export const OrderForm: FC = () => {
         <Input
           placeholder="Комментарий"
           name="comment"
-          ref={register({
-            required: { value: true, message: 'Обязательно для заполнения' },
-          })}
+          ref={register()}
           helperText={errors.comment?.message ?? ''}
           hasError={Boolean(errors.comment)}
         />

@@ -66,6 +66,7 @@ export const OrderInfo: FC = () => {
               variant="primary"
               onClick={() => dispatch(changeStatusRequestAsync(currentOrder, item.status))}
               disabled={status === item.status}
+              key={item.text}
             >
               {item.text}
             </Button>

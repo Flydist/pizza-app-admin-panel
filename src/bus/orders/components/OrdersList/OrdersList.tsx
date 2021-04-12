@@ -27,7 +27,11 @@ export const OrdersList: FC = () => {
           <AddOrderButton variant="success" onClick={() => dispatch(setAddMode())}>Добавить заказ</AddOrderButton>
           {
             statusVariants.map((item) => (
-              <OrdersTable data={filterDataByStatus(item.status, data)} tableName={item.text} />
+              <OrdersTable
+                data={filterDataByStatus(item.status, data)}
+                tableName={item.text}
+                key={item.status + item.text + Date.now()}
+              />
             ))
           }
         </>
